@@ -1,24 +1,26 @@
-
 @import "styles/base";
 
 .App {
-  &-header{
-    &-logo{
-     max-width: 80px;
+  &-header {
+    &-logo {
+      max-width: 80px;
     }
   }
-  &-content{
-    padding: 1rem 4rem;
-    h3{
-      color: $primary-color;
+  &-content {
+    padding: 1rem 2rem;
+    @media all and (min-width: 768px) {
+      padding: 1rem 4rem;
     }
-    p{
-      color: $secondary-color;
+    h3 {
+      color: var(--color-primary);
     }
-    .bye-bye{
+    p {
+      color: var(--color-secondary);
+    }
+    .bye-bye {
       margin: 4rem 0 0;
       text-align: center;
-      background: $terciary-color;
+      background: var(--color-tertiary);
       border: 1px solid #ddd;
       color: #ababab;
       padding: 1rem;
