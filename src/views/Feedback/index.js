@@ -1,12 +1,43 @@
-import React, {Component} from "react";
+import React from "react";
 
-import success from './success.png';
-import error from './error.png'
+import {
+  Wrapper,
+  Content,
+  Footer,
+  Button,
+  Icon,
+  Title,
+  Description,
+  Body,
+} from "./styles";
 
-class Step3 extends Component {
-    render() {
-        return <img src={this.props.success ? success : error}/>
-    }
-}
+const Step3View = ({ hasSubmitSucceded, onContinue }) => {
+  debugger;
 
-export default Step3;
+  return (
+    <Wrapper>
+      <Content>
+        <Icon hasSubmitSucceded={hasSubmitSucceded} />
+        <Body>
+          <Title>
+            {hasSubmitSucceded
+              ? "!Tu Password Manager está Creado¡"
+              : "Ha habido un error"}
+          </Title>
+          <Description>
+            {hasSubmitSucceded
+              ? "Ya puedes acceder a tu Cuenta Corriente OpenClose"
+              : "No hemos podido modificar tu contraseña. Intenta más tarde."}
+          </Description>
+        </Body>
+      </Content>
+      <Footer>
+        <Button onClick={onContinue}>
+          {hasSubmitSucceded ? "Acceder >" : "Volver al Password Manager >"}
+        </Button>
+      </Footer>
+    </Wrapper>
+  );
+};
+
+export default Step3View;

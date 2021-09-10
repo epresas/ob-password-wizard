@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 
 import Title from "../../components/ui/title";
+import Footer from "../../components/footer";
 
-const Step1 = ({ onCheckCompliance, hasComplied }) => {
+const Step1 = ({ onContinue, onCancel }) => {
+  const [hasComplied, setHasComplied] = useState(false);
+  const onCheckCompliance = () => {
+    setHasComplied((prevState) => !prevState);
+  };
+
   return (
     <>
       <Title>Crea tu Password Manager</Title>
@@ -31,6 +37,11 @@ const Step1 = ({ onCheckCompliance, hasComplied }) => {
           </label>
         </div>
       </section>
+      <Footer
+        onContinue={onContinue}
+        onCancel={onCancel}
+        showNextButton={hasComplied}
+      />
     </>
   );
 };

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -39,7 +39,8 @@ const Step2 = ({ onContinue = () => {}, onCancel = () => {} }) => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitSuccessful },
+    reset,
   } = useForm({
     resolver: yupResolver(validationSchema),
   });
@@ -50,11 +51,18 @@ const Step2 = ({ onContinue = () => {}, onCancel = () => {} }) => {
     // debugger;
   };
 
+  useEffect(() => {
+    if (isSubmitSuccessful) {
+      reset({ password: "", passwordConfirmation: "", passwordHint: "" });
+    }
+  }, [reset, isSubmitSuccessful]);
+
   return (
     <Step2View
       register={register}
       errors={errors}
       onSubmitForm={handleSubmit(onSubmitForm)}
+      onCancel={onCancel}
     />
   );
 };

@@ -3,11 +3,11 @@ import React from "react";
 import Button from "../ui/button";
 import { FooterWrapper } from "./styles";
 
-const Footer = ({ onCancel, onContinue }) => {
+const Footer = ({ onCancel, onContinue, showNextButton = true }) => {
   return (
     <FooterWrapper>
       <Button variant="cancel" onCancel={onCancel} />
-      <Button variant="next" onContinue={onContinue} />
+      {showNextButton && <Button variant="next" onContinue={onContinue} />}
     </FooterWrapper>
   );
 };

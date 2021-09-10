@@ -5,7 +5,7 @@ import Title from "../../components/ui/title";
 import PasswordInput from "../../components/passwordInput";
 import Footer from "../../components/footer";
 
-const Step2View = ({ register, onSubmitForm, errors }) => {
+const Step2View = ({ register, onSubmitForm, errors, onCancel }) => {
   return (
     <>
       <Title>Crea tu Password Manager</Title>
@@ -44,7 +44,7 @@ const Step2View = ({ register, onSubmitForm, errors }) => {
           <p>{errors && errors.passwordHint && errors.passwordHint.message}</p>
         </Form>
       </section>
-      <Footer onContinue={onSubmitForm} onCancel={() => {}} />
+      <Footer onContinue={onSubmitForm} onCancel={onCancel} />
     </>
   );
 };
