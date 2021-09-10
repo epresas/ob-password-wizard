@@ -21,7 +21,7 @@ const Step2View = ({ register, onSubmitForm, errors, onCancel }) => {
           <PasswordInput
             register={register}
             name="password"
-            placeholder={t("passwordPlaceHolderd")}
+            placeholder={t("passwordPlaceHolder")}
             error={errors.password}
             label={t("passwordLabel")}
           />

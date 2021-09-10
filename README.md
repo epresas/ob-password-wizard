@@ -1,3 +1,16 @@
+# Password Wizard
+
+This is a 3 step password wizard created with react.
+
+## Tech stack
+
+- [React](https://es.reactjs.org/)
+- [Styled components](https://styled-components.com/)
+- [React hook form](https://react-hook-form.com/)
+- [zvcvbn](https://github.com/dropbox/zxcvbn) - A password strenght analyzer
+
+## From Create React App
+
 In the project directory, you can run:
 
 ### `npm start`
