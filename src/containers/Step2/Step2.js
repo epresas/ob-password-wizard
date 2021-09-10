@@ -5,7 +5,14 @@ import * as yup from "yup";
 
 import Step2View from "../../views/Form";
 
+/**
+ * Container for the form logic
+ *
+ * @param {*} { onContinue = () => {}, onCancel = () => {} }
+ * @component
+ */
 const Step2 = ({ onContinue = () => {}, onCancel = () => {} }) => {
+  // Validation schema for the form
   const validationSchema = yup.object().shape({
     password: yup
       .string()
@@ -36,6 +43,7 @@ const Step2 = ({ onContinue = () => {}, onCancel = () => {} }) => {
       .string()
       .max(255, "La pista no debe exceder los 255 caracteres."),
   });
+  // React form hook methods
   const {
     register,
     handleSubmit,
@@ -45,10 +53,14 @@ const Step2 = ({ onContinue = () => {}, onCancel = () => {} }) => {
     resolver: yupResolver(validationSchema),
   });
 
+  /**
+   * Submit method that fires the parent container's submit
+   *
+   * @returns {Void}
+   */
   const onSubmitForm = (data) => {
     console.log(data);
     onContinue(data);
-    // debugger;
   };
 
   useEffect(() => {

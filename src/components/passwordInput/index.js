@@ -43,7 +43,7 @@ const PasswordInput = ({ register, placeholder, name, error, label }) => {
         onClick={togglePasswordVisibility}
         showPassword={showPassword}
       />
-      {error && <ErrorMessage>{error.message}</ErrorMessage>}
+      <ErrorMessage>{error && error.message}</ErrorMessage>
     </InputGroup>
   );
 };

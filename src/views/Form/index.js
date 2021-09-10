@@ -1,51 +1,50 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
-import { Form } from "./styles";
+import { Form, Wrapper } from "./styles";
 import Title from "../../components/ui/title";
 import PasswordInput from "../../components/passwordInput";
+import TextArea from "../../components/textArea";
 import Footer from "../../components/footer";
 
 const Step2View = ({ register, onSubmitForm, errors, onCancel }) => {
+  const { t } = useTranslation();
   return (
-    <>
-      <Title>Crea tu Password Manager</Title>
+    <Wrapper>
+      <Title>{t("common.mainTitle")}</Title>
       <section>
-        <p>
-          En primer lugar debes crear una contraseña para tu Cuenta Corriente
-          Open Close.
-        </p>
-        <p>No podrás recuperarla, así que recuerdala bien.</p>
+        <p>{t("step2InfoBlock1")}</p>
+        <p>{t("step2InfoBlock2")}</p>
       </section>
       <section>
-        <Form>
+        <Form onSubmit={onSubmitForm}>
           <PasswordInput
             register={register}
             name="password"
-            placeholder="Ingrese contraseña"
+            placeholder={t("passwordPlaceHolderd")}
             error={errors.password}
-            label="Crea tu contraseña maestra"
+            label={t("passwordLabel")}
           />
           <PasswordInput
             register={register}
             name="passwordConfirmation"
-            placeholder="Repita contraseña"
+            placeholder={t("passwordConfirmPlaceholder")}
             error={errors.passwordConfirmation}
-            label="Repite tu contraseña maestra"
+            label={t("passwordConfirmLabel")}
           />
 
-          <p>
-            Tambien puedes añadir una pista que te ayude a recordar tu
-            contraseña.
-          </p>
-          <textarea
-            {...register("passwordHint")}
-            placeholder="Introduce tu pista"
+          <p>{t("step2InfoBlock3")}</p>
+          <TextArea
+            register={register}
+            name="passwordHint"
+            placeholder={t("passwordHintPlaceholder")}
+            error={errors.passwordHint}
+            label={t("passwordHintLabel")}
           />
-          <p>{errors && errors.passwordHint && errors.passwordHint.message}</p>
         </Form>
       </section>
       <Footer onContinue={onSubmitForm} onCancel={onCancel} />
-    </>
+    </Wrapper>
   );
 };
 

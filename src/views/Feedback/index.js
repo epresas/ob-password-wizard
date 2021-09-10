@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 import {
   Wrapper,
@@ -12,8 +13,7 @@ import {
 } from "./styles";
 
 const Step3View = ({ hasSubmitSucceded, onContinue }) => {
-  debugger;
-
+  const { t } = useTranslation();
   return (
     <Wrapper>
       <Content>
@@ -21,21 +21,23 @@ const Step3View = ({ hasSubmitSucceded, onContinue }) => {
         <Body>
           <Title>
             {hasSubmitSucceded
-              ? "!Tu Password Manager está Creado¡"
-              : "Ha habido un error"}
+              ? t("feedbackTitleSuccess")
+              : t("feedbackTitleError")}
           </Title>
           <Description>
             {hasSubmitSucceded
-              ? "Ya puedes acceder a tu Cuenta Corriente OpenClose"
-              : "No hemos podido modificar tu contraseña. Intenta más tarde."}
+              ? t("feedbackDescriptionSuccess")
+              : t("feedbackDescriptionError")}
           </Description>
         </Body>
+        <Footer>
+          <Button onClick={onContinue}>
+            {hasSubmitSucceded
+              ? t("common.btnAccessLabel")
+              : t("common.btnRestartLabel")}
+          </Button>
+        </Footer>
       </Content>
-      <Footer>
-        <Button onClick={onContinue}>
-          {hasSubmitSucceded ? "Acceder >" : "Volver al Password Manager >"}
-        </Button>
-      </Footer>
     </Wrapper>
   );
 };

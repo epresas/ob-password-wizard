@@ -1,8 +1,10 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 import { ButtonWrapper } from "./styles";
 
 const Button = ({ variant, onContinue = () => {}, onCancel = () => {} }) => {
+  const { t } = useTranslation();
   const handleClick = () => {
     variant === "next" ? onContinue() : onCancel();
   };
@@ -13,7 +15,9 @@ const Button = ({ variant, onContinue = () => {}, onCancel = () => {} }) => {
       variant={variant}
       className={` button button__${variant}`}
     >
-      {variant === "next" ? "Siguiente >" : "Cancelar"}
+      {variant === "next"
+        ? t("common.btnNextLabel")
+        : t("common.btnCancelLabel")}
     </ButtonWrapper>
   );
 };

@@ -1,3 +1,30 @@
 {
-  "test": "Hola test"
+  "common": {
+    "btnNextLabel": "Siguiente >",
+    "btnCancelLabel": "Cancelar",
+    "btnAccessLabel": "Acceder >",
+    "btnRestartLabel": "Volver al Password Manager >",
+    "mainTitle": "Crea tu Password Manager",
+    "btnAccessLabel2": "Acceder >",
+    "btnAccessLabel4": "Acceder >",
+    "btnAccessLabel44": "Acceder >",
+    "btnAccessLabel444": "Acceder >",
+    "btnAccess444Label": "Acceder >"
+  },
+  "feedbackTitleSuccess": "!Tu Password Manager está Creado¡",
+  "feedbackTitleError": "Ha habido un error",
+  "feedbackDescriptionSuccess": "Ya puedes acceder a tu Cuenta Corriente OpenClose",
+  "feedbackDescriptionError": "No hemos podido modificar tu contraseña. Intenta más tarde.",
+  "step1InfoBlock1": "¡Bienvenido a tu Cuenta Corriente Open Close!, en este asistente vamos a crear una contraseña para acceder a tus servicios, para ello te pediremos unos datos en los siguientes pasos.",
+  "step1InfoBlock2": "Debes recordar que esta contraseña no se puede restaurar, así que asegurate de recordarla bien.",
+  "complianceText": "Indico que soy mayor de edad, y acepto que mis datos personales sean tratados según la política de protección de datos.",
+  "step2InfoBlock1": "En primer lugar debes crear una contraseña para tu Cuenta Corriente Open Close.",
+  "step2InfoBlock2": "No podrás recuperarla, así que recuerdala bien.",
+  "step2InfoBlock3": "Tambien puedes añadir una pista que te ayude a recordar tu contraseña.",
+  "passwordLabel": "Crea tu contraseña maestra",
+  "passwordPlaceHolder": "Ingresa contraseña",
+  "passwordConfirmLabel": "Repite tu contraseña maestra",
+  "passwordConfirmPlaceholder": "Repite contraseña",
+  "passwordHintLabel": "Crea tu pista para recordar tu contraseña",
+  "passwordHintPlaceholder": "Introduce tu pista"
 }

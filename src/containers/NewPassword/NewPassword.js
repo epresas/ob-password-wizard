@@ -1,12 +1,22 @@
 import React, { useState, useEffect, useCallback } from "react";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Loader from "react-loader-spinner";
+
 import NewPasswordView from "../../views/NewPassword";
 import Stepper from "../Stepper";
 import Step1 from "../../views/ProductInformation";
 import Step2 from "../Step2";
 import Step3 from "../../views/Feedback";
 
+import { Backdrop } from "./styles";
+
 import { submitForm } from "../../services/api";
 
+/**
+ * Main container for the wizard.
+ *
+ * @component
+ */
 const NewPassword = (/* props */) => {
   const [currentStep, setCurrentStep] = useState(1);
   const initialStepsState = [
@@ -30,6 +40,11 @@ const NewPassword = (/* props */) => {
   const [isLoading, setIsLoading] = useState(false);
   const [hasSubmitSucceded, setHasSubmitSucceded] = useState(null);
 
+  /**
+   * Sets the step configuration to point to the next step
+   *
+   * @returns {Void}
+   */
   const goToNextStep = () => {
     const updatedSteps = steps;
     const idx = currentStep - 1;
@@ -49,6 +64,11 @@ const NewPassword = (/* props */) => {
     setSteps(updatedSteps);
   };
 
+  /**
+   * Resets the step configuration to point to the first step
+   *
+   * @returns {Void}
+   */
   const resetWizard = () => {
     const updatedSteps = initialStepsState.map((step, index) => ({
       ...step,
@@ -58,6 +78,11 @@ const NewPassword = (/* props */) => {
     setCurrentStep(1);
   };
 
+  /**
+   * Makes the api call with the data
+   *
+   * @returns {Void}
+   */
   const onSubmitForm = async (formData) => {
     const { password, passwordConfirmation, passwordHint } = formData;
     setIsLoading(true);
@@ -91,11 +116,15 @@ const NewPassword = (/* props */) => {
     },
   ];
 
+  /**
+   * Gets the current step component
+   *
+   * @returns {Object} The component to render
+   */
   const getCurrentStep = useCallback(() => {
     const { component, onCancel, onContinue } =
       STEP_COMPONENTS[currentStep - 1];
     const CurrentStepContent = component;
-    // debugger;
     if (currentStep === 3) {
       debugger;
       return (
@@ -107,12 +136,24 @@ const NewPassword = (/* props */) => {
       );
     }
     return <CurrentStepContent onCancel={onCancel} onContinue={onContinue} />;
-  }, [STEP_COMPONENTS, currentStep]);
+  }, [STEP_COMPONENTS, currentStep, hasSubmitSucceded, resetWizard]);
 
   return (
     <NewPasswordView>
       <Stepper steps={steps} />
-      {isLoading ? <p>Loading...</p> : getCurrentStep()}
+      {isLoading ? (
+        <Backdrop>
+          <Loader
+            type="Puff"
+            color="#ABABAB"
+            height={100}
+            width={100}
+            timeout={3000} //3 secs
+          />
+        </Backdrop>
+      ) : (
+        getCurrentStep()
+      )}
     </NewPasswordView>
   );
 };

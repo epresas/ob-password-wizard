@@ -10,6 +10,11 @@ export const Input = styled.input.attrs(({ type }) => ({ type }))`
   height: 2rem;
   position: relative;
   width: 100%;
+
+  &::placeholder {
+    font-family: "Quicksand", sans-serif;
+    color: var(--color-grey);
+  }
 `;
 
 export const IconButton = styled.span`
@@ -24,17 +29,19 @@ export const IconButton = styled.span`
 
 export const InputGroup = styled.div`
   align-items: flex-start;
-  /* display: flex; */
-  /* flex-direction: column; */
-  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
   margin: 10px 0;
   position: relative;
-  height: 4rem;
+  height: 5rem;
   max-width: 300px;
   width: 100%;
 
-  &:not(:last-of-type) {
-    margin-right: 2rem;
+  @media all and (min-width: 768px) {
+    &:first-of-type {
+      margin-right: 2rem;
+    }
   }
 `;
 
@@ -61,6 +68,7 @@ export const PasswordStrength = styled.div`
   transform: translateY(-5px);
   transition: width 0.3s linear, background-color 0.2s linear 0.2s;
   left: 4px;
+  bottom: 20%;
   width: ${(props) => "" + props.strength * 25 + "%"};
   max-width: 100%;
 `;
