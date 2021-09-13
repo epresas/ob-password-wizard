@@ -24,6 +24,14 @@ const Step1 = ({ onContinue, onCancel }) => {
    * - For methods, a good practice is create a ref to DOM element and register a listener for the custom events,
    *   ir order to do that, useLayoutEffect is the ideal hook, because it waits for the DOM to render completely.
    *   Also add a return to the effect to clean the listeners.
+   *
+   * references:
+   *  https://www.robinwieruch.de/react-web-components
+   *  https://css-tricks.com/3-approaches-to-integrate-react-with-custom-elements/
+   *  https://coryrylan.com/blog/using-web-components-in-react
+   *
+   * useRef: https://reactjs.org/docs/hooks-reference.html#useref
+   * useLayoutEffect: https://reactjs.org/docs/hooks-reference.html#uselayouteffect
    */
 
   const dropdownProps = {
