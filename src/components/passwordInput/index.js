@@ -11,7 +11,7 @@ import {
 } from "./styles";
 
 const PasswordInput = ({ register, placeholder, name, error, label }) => {
-  // debugger;
+
   const [showPassword, setShowPassword] = useState(false);
   const [passwordStrength, setPasswordStrength] = useState(0);
 

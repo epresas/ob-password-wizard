@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
+import "@dile/dile-spinner/dile-spinner";
 
 import NewPasswordView from "../../views/NewPassword";
 import Stepper from "../Stepper";
@@ -126,7 +127,6 @@ const NewPassword = (/* props */) => {
       STEP_COMPONENTS[currentStep - 1];
     const CurrentStepContent = component;
     if (currentStep === 3) {
-      debugger;
       return (
         <CurrentStepContent
           onCancel={() => {}}
@@ -143,13 +143,14 @@ const NewPassword = (/* props */) => {
       <Stepper steps={steps} />
       {isLoading ? (
         <Backdrop>
-          <Loader
+          <dile-spinner active></dile-spinner>
+          {/* <Loader
             type="Puff"
             color="#ABABAB"
             height={100}
             width={100}
             timeout={3000} //3 secs
-          />
+          /> */}
         </Backdrop>
       ) : (
         getCurrentStep()

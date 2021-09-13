@@ -12,6 +12,8 @@ const GlobalStyle = createGlobalStyle`
     --color-black-pure: #000000;
     --color-grey: #ABABAB;
     --color-grey-light: #CCD5DA;
+    /* Test for wc customization */
+    /* --dile-spinner-color: rebeccapurple; */
   }
   
   body {
