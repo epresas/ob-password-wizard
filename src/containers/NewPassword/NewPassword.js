@@ -126,7 +126,6 @@ const NewPassword = (/* props */) => {
       STEP_COMPONENTS[currentStep - 1];
     const CurrentStepContent = component;
     if (currentStep === 3) {
-      debugger;
       return (
         <CurrentStepContent
           onCancel={() => {}}
