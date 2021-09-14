@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
-export const ButtonWrapper = styled.button`
+export const ButtonWrapper = styled.button.attrs((props) => ({
+  role: "button",
+}))`
   background: none;
   border: none;
   color: var(--color-secondary);
